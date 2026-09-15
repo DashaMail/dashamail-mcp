@@ -1,5 +1,7 @@
 # DashaMail MCP Server
 
+[![smithery badge](https://smithery.ai/badge/dashamail/mcp)](https://smithery.ai/servers/dashamail/mcp)
+
 MCP-сервер сервиса email-маркетинга [DashaMail](https://dashamail.ru): даёт
 ИИ-агенту доступ к аккаунту — адресные базы, рассылки, отчёты, шаблоны,
 автоматизации, транзакционные письма, вебхуки и входящая почта.
@@ -92,6 +94,7 @@ Settings → Connectors → Add custom connector, адрес
 - [Документация MCP-сервера](https://dashamail.ru/api/mcp/)
 - [Страница возможностей](https://dashamail.ru/features/mcp/)
 - [REST API v2](https://dashamail.ru/api/)
+- [Сервер в каталоге Smithery](https://smithery.ai/servers/dashamail/mcp)
 - [Политика обработки персональных данных](https://dashamail.ru/privacy/)
   ([English](https://dashamail.ru/privacy_en/))
 
