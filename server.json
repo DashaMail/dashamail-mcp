@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "ru.dashamail/mcp",
+  "title": "DashaMail",
+  "description": "Email marketing for Russian businesses: lists, campaigns, reports, transactional email.",
+  "version": "0.1.0",
+  "websiteUrl": "https://dashamail.ru/features/mcp/",
+  "icons": [
+    {
+      "src": "https://dashamail.ru/assets/img/mcp-logo-512.png",
+      "mimeType": "image/png",
+      "sizes": ["512x512"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.dashamail.ru/"
+    }
+  ]
+}
