@@ -4,7 +4,7 @@
 
 MCP-сервер сервиса email-маркетинга [DashaMail](https://dashamail.ru): даёт
 ИИ-агенту доступ к аккаунту — адресные базы, рассылки, отчёты, шаблоны,
-автоматизации, транзакционные письма, вебхуки и входящая почта.
+автоматизации, сегменты, транзакционные письма, вебхуки и входящая почта.
 
 Сервер удалённый, разворачивать ничего не нужно.
 
@@ -13,7 +13,7 @@ MCP-сервер сервиса email-маркетинга [DashaMail](https://d
 | Адрес | `https://mcp.dashamail.ru/` |
 | Транспорт | Streamable HTTP, протокол MCP 2025-06-18 |
 | Авторизация | OAuth 2.1 + PKCE + динамическая регистрация клиента, либо API-ключ |
-| Инструментов | 75 ([список](TOOLS.md)) |
+| Инструментов | 95 ([список](TOOLS.md)) |
 | В реестре | `ru.dashamail/mcp` |
 | Документация | https://dashamail.ru/api/mcp/ |
 
@@ -63,7 +63,7 @@ Settings → Connectors → Add custom connector, адрес
 этого есть отдельные инструменты `campaigns_schedule` и
 `campaigns_send_now`. Так агент не разошлёт письма, «помогая» с черновиком.
 
-**Подтверждение перед отправкой.** У восьми инструментов, которые отправляют
+**Подтверждение перед отправкой.** У одиннадцати инструментов, которые отправляют
 письма или удаляют данные, проставлен `destructiveHint` — клиент спрашивает
 подтверждение перед каждым вызовом. Чтение идёт без вопросов.
 
@@ -76,7 +76,7 @@ Settings → Connectors → Add custom connector, адрес
 | Параметр | Что делает |
 |---|---|
 | `?readonly=1` | убирает все изменяющие инструменты, остаётся только чтение |
-| `?toolset=core` | короткий набор (~35) для клиентов с малым контекстом |
+| `?toolset=core` | короткий набор (~40) для клиентов с малым контекстом |
 
 Например: `https://mcp.dashamail.ru/?readonly=1&toolset=core`
 
@@ -98,6 +98,12 @@ Settings → Connectors → Add custom connector, адрес
 - [Политика обработки персональных данных](https://dashamail.ru/privacy/)
   ([English](https://dashamail.ru/privacy_en/))
 
+## Лицензия
+
+[MIT](LICENSE) — на содержимое этого репозитория: описание, список
+инструментов и манифест сервера. Сам MCP-сервер и сервис DashaMail под неё
+не попадают: их код закрыт и здесь не распространяется.
+
 ---
 
 ## English
@@ -105,7 +111,8 @@ Settings → Connectors → Add custom connector, адрес
 MCP server for [DashaMail](https://dashamail.ru), an email marketing service
 used by Russian businesses. It gives an AI agent access to the account:
 subscriber lists and members, campaigns, reports, templates, automations,
-transactional email, webhooks and inbound routing — 75 tools in total.
+transactional email, segments, dialogs, webhooks and inbound routing — 95 tools
+in total.
 
 The server is remote, at `https://mcp.dashamail.ru/`, over Streamable HTTP.
 Authentication is OAuth 2.1 with PKCE and dynamic client registration; an API
@@ -120,3 +127,7 @@ tool, `?toolset=core` exposes a compact set for small context windows.
 The server source is closed; this repository holds the description and is the
 place for issues. Tool list: [TOOLS.md](TOOLS.md). Support:
 `support@dashamail.ru`.
+
+The contents of this repository — the description, the tool list and the
+server manifest — are published under the [MIT license](LICENSE). The MCP
+server and the DashaMail service are not covered by it.

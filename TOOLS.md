@@ -1,6 +1,6 @@
 # Инструменты
 
-Всего 75. Заголовки двуязычные, как в самом сервере.
+Всего 95. Заголовки двуязычные, как в самом сервере.
 
 ## Аккаунт, отправители, домены
 
@@ -40,6 +40,18 @@
 | `imports_status` | Результат последнего импорта | Result of the last import |
 | `imports_history` | История импортов | Import history |
 
+## Сегменты
+
+| Инструмент | Что делает | Tool |
+|---|---|---|
+| `segments_fields` | Из чего собирать условия отбора | What segment conditions are made of |
+| `segments_list` | Сохранённые сегменты | Saved segments |
+| `segments_get` | Один сегмент с условиями | A single segment with its conditions |
+| `segments_count` | Размер сегмента | Size of a segment |
+| `segments_create` | Сохранить сегмент | Save a segment |
+| `segments_update` | Изменить сегмент | Change a segment |
+| `segments_delete` ⚠️ | Удалить сегмент | Delete a segment |
+
 ## Рассылки и шаблоны
 
 | Инструмент | Что делает | Tool |
@@ -48,6 +60,9 @@
 | `campaigns_get` | Одна рассылка | A single campaign |
 | `campaigns_create` | Создать черновик рассылки | Create a campaign draft |
 | `campaigns_update` | Изменить черновик рассылки | Update a campaign draft |
+| `campaigns_test` | Отправить тестовое письмо | Send a test email |
+| `campaigns_preview` | Ссылка на просмотр письма | Preview link for the email |
+| `campaigns_estimate` | Сколько писем уйдёт | How many emails will go out |
 | `campaigns_schedule` ⚠️ | Запланировать отправку рассылки | Schedule a campaign |
 | `campaigns_send_now` ⚠️ | Отправить рассылку сейчас | Send a campaign now |
 | `campaigns_pause` | Приостановить отправку | Pause sending |
@@ -57,8 +72,10 @@
 | `campaigns_copy` | Скопировать рассылку | Copy a campaign |
 | `folders_list` | Папки рассылок | Campaign folders |
 | `campaigns_move_to_folder` | Переместить рассылку в папку | Move a campaign to a folder |
-| `templates_list` | Сохранённые шаблоны аккаунта | Saved account templates |
-| `templates_gallery` | Готовые шаблоны из галереи | Ready-made templates from the gallery |
+| `templates_saved` | Шаблоны аккаунта | Templates of the account |
+| `templates_html` | HTML-шаблоны аккаунта | HTML templates of the account |
+| `templates_get` | Один HTML-шаблон | A single HTML template |
+| `templates_update` | Изменить HTML-шаблон | Update an HTML template |
 | `templates_create` | Сохранить HTML-шаблон | Save an HTML template |
 
 ## Автоматизации
@@ -75,6 +92,8 @@
 | `reports_summary` | Сводка по рассылке или по аккаунту | Summary for a campaign or the account |
 | `reports_recipients` | Получатели по событию | Recipients by event |
 | `reports_events` | Лента событий рассылки | Campaign event feed |
+| `reports_timeline` | Динамика рассылки по времени | Campaign timeline |
+| `analytics_report` | Отчёт по периодам | Report by periods |
 | `reports_links` | Клики по ссылкам | Link clicks |
 | `reports_link_clickers` | Кто кликнул по ссылке | Who clicked a link |
 | `reports_bounces` | Возвраты по SMTP-кодам | Bounces by SMTP code |
@@ -102,6 +121,17 @@
 | `webhooks_set_transactional` | Задать URL вебхука транзакционных писем | Set a transactional email webhook URL |
 | `webhooks_delete_transactional` ⚠️ | Удалить вебхук транзакционных писем | Delete a transactional email webhook |
 
+## Диалоги: ответы на рассылки
+
+| Инструмент | Что делает | Tool |
+|---|---|---|
+| `dialogs_list` | Ответы подписчиков на рассылки | Subscriber replies to campaigns |
+| `dialogs_get` | Один диалог с контекстом | A single dialog with its context |
+| `dialogs_messages` | Переписка диалога | Conversation of a dialog |
+| `dialogs_reply` ⚠️ | Ответить подписчику | Reply to the subscriber |
+| `dialogs_close` | Закрыть диалог | Close a dialog |
+| `dialogs_unread_count` | Сколько непрочитанных ответов | How many unread replies |
+
 ## Роутер входящей почты
 
 | Инструмент | Что делает | Tool |
@@ -111,6 +141,9 @@
 | `router_messages_get` | Одно входящее письмо Роутера | A single inbound Router message |
 | `router_deliveries_list` | Доставки Роутера | Router deliveries |
 
-⚠️ — инструмент помечен `destructiveHint`: клиент спрашивает подтверждение.
+⚠️ — необратимо: уходят письма либо удаляются данные. Клиенты по этой
+пометке сами спрашивают подтверждение.
 
-Шесть составных инструментов (`whoami`, `get_dashboard_link`, `campaigns_delete`, `members_find`, `lists_stats`, `reports_compare`) считают сводки на сервере и в этот список не входят.
+Шесть составных инструментов (`whoami`, `get_dashboard_link`, `campaigns_delete`,
+`members_find`, `lists_stats`, `reports_compare`) считают сводки на сервере и в
+этот список не входят.
