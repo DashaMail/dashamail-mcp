@@ -76,6 +76,12 @@ Settings → Connectors → Add custom connector, адрес
 текст возвращают, это написано в описании; флаг `?no_ugc=1` убирает его из
 ответов совсем.
 
+**Справочники отдельно от инструментов.** Сервер отдаёт четыре ресурса MCP
+(`dashamail://docs/metrics`, `docs/segments`, `docs/errors`,
+`account/summary`): формулы метрик, формат условий отбора, коды ошибок и
+состояние аккаунта. Клиент прикладывает их к разговору целиком, вместо того
+чтобы агент вычитывал одно и то же из описания каждого инструмента.
+
 **Три параметра для сужения:**
 
 | Параметр | Что делает |
@@ -134,6 +140,11 @@ tool, `?toolset=core` exposes a compact set for small context windows, and
 `?no_ugc=1` strips text written by outsiders — subscriber-entered field
 values and inbound email — which tool descriptions otherwise flag as data,
 not instructions.
+
+Besides tools the server exposes four MCP resources — metric definitions and
+calculation bases, the segment condition format, error codes, and a snapshot
+of the account — so a client can attach the reference material once instead
+of the agent re-reading it from every tool description.
 
 The server source is closed; this repository holds the description and is the
 place for issues. Tool list: [TOOLS.md](TOOLS.md). Support:
