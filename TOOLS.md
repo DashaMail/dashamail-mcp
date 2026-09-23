@@ -1,6 +1,6 @@
 # Инструменты
 
-Всего 95. Заголовки двуязычные, как в самом сервере.
+Всего 98. Заголовки двуязычные, как в самом сервере.
 
 ## Аккаунт, отправители, домены
 
@@ -34,6 +34,7 @@
 | `members_move` | Перенести подписчика в другую базу | Move a subscriber to another list |
 | `members_copy` | Скопировать подписчика в другую базу | Copy a subscriber to another list |
 | `members_activity` | История событий подписчика | Subscriber event history |
+| `members_find` | Найти подписчика во всех базах | Find a subscriber across all lists |
 | `members_status` | Текущий статус адреса | Current status of an address |
 | `members_check_email` | Проверить адрес перед подпиской | Check an address before subscribing |
 | `imports_start` | Запустить импорт подписчиков из файла по URL | Start a subscriber import from a file URL |
@@ -83,6 +84,9 @@
 | Инструмент | Что делает | Tool |
 |---|---|---|
 | `automations_list` | Автоматизации | Automations |
+| `automations_events` | События запуска автоматизаций | Automation trigger events |
+| `automations_create` | Создать автоматизацию | Create an automation |
+| `automations_update` | Изменить автоматизацию | Update an automation |
 | `automations_trigger` ⚠️ | Запустить автоматизацию для адреса | Trigger an automation for an address |
 
 ## Отчёты
@@ -144,6 +148,5 @@
 ⚠️ — необратимо: уходят письма либо удаляются данные. Клиенты по этой
 пометке сами спрашивают подтверждение.
 
-Шесть составных инструментов (`whoami`, `get_dashboard_link`, `campaigns_delete`,
-`members_find`, `lists_stats`, `reports_compare`) считают сводки на сервере и в
-этот список не входят.
+Ещё 5 составных инструмента считают сводки на сервере и в этот
+список не входят: `whoami`, `get_dashboard_link`, `campaigns_delete`, `lists_stats`, `reports_compare`.

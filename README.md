@@ -13,7 +13,7 @@ MCP-сервер сервиса email-маркетинга [DashaMail](https://d
 | Адрес | `https://mcp.dashamail.ru/` |
 | Транспорт | Streamable HTTP, протокол MCP 2025-06-18 |
 | Авторизация | OAuth 2.1 + PKCE + динамическая регистрация клиента, либо API-ключ |
-| Инструментов | 95 ([список](TOOLS.md)) |
+| Инструментов | 98 ([список](TOOLS.md)) |
 | В реестре | `ru.dashamail/mcp` |
 | Документация | https://dashamail.ru/api/mcp/ |
 
@@ -111,7 +111,7 @@ Settings → Connectors → Add custom connector, адрес
 MCP server for [DashaMail](https://dashamail.ru), an email marketing service
 used by Russian businesses. It gives an AI agent access to the account:
 subscriber lists and members, campaigns, reports, templates, automations,
-transactional email, segments, dialogs, webhooks and inbound routing — 95 tools
+transactional email, segments, dialogs, webhooks and inbound routing — 98 tools
 in total.
 
 The server is remote, at `https://mcp.dashamail.ru/`, over Streamable HTTP.
