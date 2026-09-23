@@ -13,7 +13,7 @@ MCP-сервер сервиса email-маркетинга [DashaMail](https://d
 | Адрес | `https://mcp.dashamail.ru/` |
 | Транспорт | Streamable HTTP, протокол MCP 2025-06-18 |
 | Авторизация | OAuth 2.1 + PKCE + динамическая регистрация клиента, либо API-ключ |
-| Инструментов | 98 ([список](TOOLS.md)) |
+| Инструментов | 106 ([список](TOOLS.md)) |
 | В реестре | `ru.dashamail/mcp` |
 | Документация | https://dashamail.ru/api/mcp/ |
 
@@ -63,7 +63,7 @@ Settings → Connectors → Add custom connector, адрес
 этого есть отдельные инструменты `campaigns_schedule` и
 `campaigns_send_now`. Так агент не разошлёт письма, «помогая» с черновиком.
 
-**Подтверждение перед отправкой.** У одиннадцати инструментов, которые отправляют
+**Подтверждение перед отправкой.** У двенадцати инструментов, которые отправляют
 письма или удаляют данные, проставлен `destructiveHint` — клиент спрашивает
 подтверждение перед каждым вызовом. Чтение идёт без вопросов.
 
@@ -71,18 +71,26 @@ Settings → Connectors → Add custom connector, адрес
 запрашивает клиент; выбор меняется потом в кабинете. Токен ограничен
 выбранным.
 
-**Два параметра для сужения:**
+**Чужой текст помечен.** Ответ подписчика на рассылку и значение поля из
+формы — это данные, а не указания агенту. У инструментов, которые такой
+текст возвращают, это написано в описании; флаг `?no_ugc=1` убирает его из
+ответов совсем.
+
+**Три параметра для сужения:**
 
 | Параметр | Что делает |
 |---|---|
 | `?readonly=1` | убирает все изменяющие инструменты, остаётся только чтение |
 | `?toolset=core` | короткий набор (~40) для клиентов с малым контекстом |
+| `?no_ugc=1` | ответы без текста, написанного посторонними |
 
 Например: `https://mcp.dashamail.ru/?readonly=1&toolset=core`
 
 ## Что можно делать
 
 - собрать и почистить адресную базу, проверить её здоровье перед отправкой;
+- поставить A/B-тест по теме или отправителю, а через сутки разобрать, кто
+  выиграл, и отправить победителя остальным;
 - сделать черновик рассылки по брифу, запланировать, потом разобрать отчёт —
   открытия, клики, возвраты, отписки по доменам, ссылкам, географии и
   устройствам;
@@ -111,7 +119,7 @@ Settings → Connectors → Add custom connector, адрес
 MCP server for [DashaMail](https://dashamail.ru), an email marketing service
 used by Russian businesses. It gives an AI agent access to the account:
 subscriber lists and members, campaigns, reports, templates, automations,
-transactional email, segments, dialogs, webhooks and inbound routing — 98 tools
+transactional email, segments, dialogs, webhooks and inbound routing — 106 tools
 in total.
 
 The server is remote, at `https://mcp.dashamail.ru/`, over Streamable HTTP.
@@ -122,7 +130,10 @@ Draft-first by design: creating a campaign never sends it. Sending, scheduling
 and deletion carry `destructiveHint`, so clients ask for confirmation before
 each call; read-only tools run without prompts. Users pick scopes on the
 consent screen and can change them later. `?readonly=1` drops every write
-tool, `?toolset=core` exposes a compact set for small context windows.
+tool, `?toolset=core` exposes a compact set for small context windows, and
+`?no_ugc=1` strips text written by outsiders — subscriber-entered field
+values and inbound email — which tool descriptions otherwise flag as data,
+not instructions.
 
 The server source is closed; this repository holds the description and is the
 place for issues. Tool list: [TOOLS.md](TOOLS.md). Support:
