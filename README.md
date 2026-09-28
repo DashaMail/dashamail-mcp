@@ -13,7 +13,7 @@ MCP-сервер сервиса email-маркетинга [DashaMail](https://d
 | Адрес | `https://mcp.dashamail.ru/` |
 | Транспорт | Streamable HTTP, протокол MCP 2025-06-18 |
 | Авторизация | OAuth 2.1 + PKCE + динамическая регистрация клиента, либо API-ключ |
-| Инструментов | 106 ([список](TOOLS.md)) |
+| Инструментов | 107 ([список](TOOLS.md)) |
 | В реестре | `ru.dashamail/mcp` |
 | Документация | https://dashamail.ru/api/mcp/ |
 
@@ -82,6 +82,13 @@ Settings → Connectors → Add custom connector, адрес
 состояние аккаунта. Клиент прикладывает их к разговору целиком, вместо того
 чтобы агент вычитывал одно и то же из описания каждого инструмента.
 
+**Отчёт карточкой.** В клиентах с поддержкой MCP Apps — например, в Claude —
+`reports_dashboard` показывает итоги рассылки интерактивной карточкой прямо в
+переписке: доставка, открытия, клики, отписки, график по часам за первые
+трое суток, почтовые домены и ссылки; на полном экране переключаются
+последние рассылки. Доли считаются от доставленных, как в отчёте кабинета.
+Остальные клиенты получают ту же сводку текстом.
+
 **Три параметра для сужения:**
 
 | Параметр | Что делает |
@@ -125,7 +132,7 @@ Settings → Connectors → Add custom connector, адрес
 MCP server for [DashaMail](https://dashamail.ru), an email marketing service
 used by Russian businesses. It gives an AI agent access to the account:
 subscriber lists and members, campaigns, reports, templates, automations,
-transactional email, segments, dialogs, webhooks and inbound routing — 106 tools
+transactional email, segments, dialogs, webhooks and inbound routing — 107 tools
 in total.
 
 The server is remote, at `https://mcp.dashamail.ru/`, over Streamable HTTP.
@@ -145,6 +152,13 @@ Besides tools the server exposes four MCP resources — metric definitions and
 calculation bases, the segment condition format, error codes, and a snapshot
 of the account — so a client can attach the reference material once instead
 of the agent re-reading it from every tool description.
+
+In clients that support MCP Apps, such as Claude, `reports_dashboard` renders
+a campaign report as an interactive card right in the conversation: delivery,
+opens, clicks, unsubscribes, an hourly chart for the first three days, mail
+domains and links, with a switcher between recent campaigns in full screen.
+Rates are shares of delivered email, as in the DashaMail dashboard report.
+Other clients get the same summary as text.
 
 The server source is closed; this repository holds the description and is the
 place for issues. Tool list: [TOOLS.md](TOOLS.md). Support:
