@@ -76,11 +76,18 @@ Settings → Connectors → Add custom connector, адрес
 текст возвращают, это написано в описании; флаг `?no_ugc=1` убирает его из
 ответов совсем.
 
-**Справочники отдельно от инструментов.** Сервер отдаёт четыре ресурса MCP
-(`dashamail://docs/metrics`, `docs/segments`, `docs/errors`,
-`account/summary`): формулы метрик, формат условий отбора, коды ошибок и
-состояние аккаунта. Клиент прикладывает их к разговору целиком, вместо того
-чтобы агент вычитывал одно и то же из описания каждого инструмента.
+**Справочники отдельно от инструментов.** Сервер отдаёт пять ресурсов MCP
+(`dashamail://docs/metrics`, `docs/segments`, `docs/personalization`,
+`docs/errors`, `account/summary`): формулы метрик, формат условий отбора,
+подстановки в письме, коды ошибок и состояние аккаунта. Клиент прикладывает
+их к разговору целиком, вместо того чтобы агент вычитывал одно и то же из
+описания каждого инструмента.
+
+**Файл и проверка — прямо из разговора.** `imports_start` принимает файл
+содержимым — CSV текстом, остальное в base64, — так что базу, собранную в
+переписке, не нужно выкладывать по ссылке. `campaigns_test` с `member_email`
+заполняет подстановки данными выбранного подписчика: персональный вариант
+письма проверяется до запуска.
 
 **Отчёт карточкой.** В клиентах с поддержкой MCP Apps — например, в Claude —
 `reports_dashboard` показывает итоги рассылки интерактивной карточкой прямо в
@@ -148,10 +155,17 @@ tool, `?toolset=core` exposes a compact set for small context windows, and
 values and inbound email — which tool descriptions otherwise flag as data,
 not instructions.
 
-Besides tools the server exposes four MCP resources — metric definitions and
-calculation bases, the segment condition format, error codes, and a snapshot
-of the account — so a client can attach the reference material once instead
-of the agent re-reading it from every tool description.
+Besides tools the server exposes five MCP resources — metric definitions and
+calculation bases, the segment condition format, merge tags and conditional
+blocks, error codes, and a snapshot of the account — so a client can attach
+the reference material once instead of the agent re-reading it from every
+tool description.
+
+`imports_start` accepts a file as its contents (CSV as text, other formats in
+base64), so a list put together in the conversation needs no public link, and
+`campaigns_test` with `member_email` fills the merge tags from a chosen
+subscriber, so a personalised version of an email can be checked before
+launch.
 
 In clients that support MCP Apps, such as Claude, `reports_dashboard` renders
 a campaign report as an interactive card right in the conversation: delivery,

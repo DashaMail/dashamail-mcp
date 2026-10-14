@@ -38,7 +38,7 @@
 | `members_activity` | История событий подписчика | Subscriber event history |
 | `members_status` | Текущий статус адреса | Current status of an address |
 | `members_check_email` | Проверить адрес перед подпиской | Check an address before subscribing |
-| `imports_start` | Запустить импорт подписчиков из файла по URL | Start a subscriber import from a file URL |
+| `imports_start` | Запустить импорт подписчиков из файла | Start a subscriber import from a file |
 | `imports_status` | Результат последнего импорта | Result of the last import |
 | `imports_history` | История импортов | Import history |
 
