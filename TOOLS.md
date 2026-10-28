@@ -1,6 +1,6 @@
 # Инструменты
 
-Всего 107: 102 в таблицах ниже и 5 составных.
+Всего 125: 120 в таблицах ниже и 5 составных.
 Заголовки двуязычные, как в самом сервере.
 
 ## Аккаунт, отправители, домены
@@ -154,6 +154,29 @@
 | `router_messages_list` | Входящие письма Роутера | Inbound Router messages |
 | `router_messages_get` | Одно входящее письмо Роутера | A single inbound Router message |
 | `router_deliveries_list` | Доставки Роутера | Router deliveries |
+
+## Сайты и виджеты
+
+| Инструмент | Что делает | Tool |
+|---|---|---|
+| `sites_list` | Сайты аккаунта | Account websites |
+| `sites_get` | Один сайт | A single website |
+| `sites_plan` | Тариф «Сайты и виджеты» | Websites and widgets plan |
+| `sites_widgets` | Виджеты сайта | Widgets of a website |
+| `sites_widget_enable` | Включить виджет | Enable a widget |
+| `sites_widget_disable` | Выключить виджет | Disable a widget |
+| `sites_stats` | Статистика сайта | Website statistics |
+| `sites_widget_stats` | Статистика по виджетам | Per-widget statistics |
+| `sites_tests` | A/B-тесты сайта | A/B tests of a website |
+| `sites_test_stats` | Итоги A/B-тестов | A/B test results |
+| `sites_leads` | Заявки с сайта | Leads from a website |
+| `sites_lead_get` | Одна заявка | A single lead |
+| `sites_lead_retry` | Повторить доставку заявки | Retry a lead delivery |
+| `sites_visitors` | Посетители сайта | Website visitors |
+| `sites_webhooks` | Вебхуки на заявку | Lead webhooks |
+| `sites_webhook_set` | Поставить вебхук на заявку | Set a lead webhook |
+| `sites_webhook_delete` ⚠️ | Снять вебхук | Remove a lead webhook |
+| `sites_feeds` | Товарные каталоги сайта | Product feeds of a website |
 
 ⚠️ — необратимо: уходят письма либо удаляются данные. Клиенты по этой
 пометке сами спрашивают подтверждение.

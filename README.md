@@ -13,7 +13,7 @@ MCP-сервер сервиса email-маркетинга [DashaMail](https://d
 | Адрес | `https://mcp.dashamail.ru/` |
 | Транспорт | Streamable HTTP, протокол MCP 2025-06-18 |
 | Авторизация | OAuth 2.1 + PKCE + динамическая регистрация клиента, либо API-ключ |
-| Инструментов | 107 ([список](TOOLS.md)) |
+| Инструментов | 125 ([список](TOOLS.md)) |
 | В реестре | `ru.dashamail/mcp` |
 | Документация | https://dashamail.ru/api/mcp/ |
 
@@ -115,7 +115,9 @@ Settings → Connectors → Add custom connector, адрес
   открытия, клики, возвраты, отписки по доменам, ссылкам, географии и
   устройствам;
 - разобраться, почему клиент не получил транзакционное письмо;
-- сравнить периоды и каналы, не открывая кабинет.
+- сравнить периоды и каналы, не открывая кабинет;
+- посмотреть, что происходит на сайте: какие виджеты показываются, сколько
+  собрали заявок и кто их оставил, — и выключить поп-ап, который мешает.
 
 ## Ссылки
 
@@ -139,8 +141,8 @@ Settings → Connectors → Add custom connector, адрес
 MCP server for [DashaMail](https://dashamail.ru), an email marketing service
 used by Russian businesses. It gives an AI agent access to the account:
 subscriber lists and members, campaigns, reports, templates, automations,
-transactional email, segments, dialogs, webhooks and inbound routing — 107 tools
-in total.
+transactional email, segments, dialogs, webhooks, inbound routing and
+websites with widgets — 125 tools in total.
 
 The server is remote, at `https://mcp.dashamail.ru/`, over Streamable HTTP.
 Authentication is OAuth 2.1 with PKCE and dynamic client registration; an API
@@ -166,6 +168,13 @@ base64), so a list put together in the conversation needs no public link, and
 `campaigns_test` with `member_email` fills the merge tags from a chosen
 subscriber, so a personalised version of an email can be checked before
 launch.
+
+The websites and widgets section is covered too: what is connected to a site,
+which widgets are running and how they convert, A/B test results, the leads
+people submitted and where those leads were delivered. Enabling or disabling a
+widget and setting a lead webhook are writes and ask for confirmation;
+connecting a site, its domains and product feeds stay in the web interface —
+this API cannot undo them.
 
 In clients that support MCP Apps, such as Claude, `reports_dashboard` renders
 a campaign report as an interactive card right in the conversation: delivery,
